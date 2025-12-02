@@ -1,0 +1,7 @@
+Workflow uruchamia się automatycznie przy pushu i pull requeście, ale tylko wtedy, gdy zmienione zostały pliki w folderze docs/.
+Działa na maszynie GitHub Actions z systemem Ubuntu.
+Składa się z jednego joba (docs), który wykonuje cztery kroki:
+-pobiera kod repozytorium (checkout),
+-instaluje potrzebne pakiety i zależności,
+-buduje dokumentację Sphinx i generuje pliki HTML,
+-przy pushu — wysyła gotową dokumentację na GitHub Pages.
