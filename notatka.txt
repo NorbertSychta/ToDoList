@@ -1,3 +1,4 @@
+Workflow DOCS:
 Workflow uruchamia się automatycznie przy pushu i pull requeście, ale tylko wtedy, gdy zmienione zostały pliki w folderze docs/.
 Działa na maszynie GitHub Actions z systemem Ubuntu.
 Składa się z jednego joba (docs), który wykonuje cztery kroki:
@@ -5,3 +6,11 @@ Składa się z jednego joba (docs), który wykonuje cztery kroki:
 -instaluje potrzebne pakiety i zależności,
 -buduje dokumentację Sphinx i generuje pliki HTML,
 -przy pushu — wysyła gotową dokumentację na GitHub Pages.
+
+Workflow „Hello”:
+Workflow uruchamia się ręcznie z poziomu GitHub Actions dzięki triggerowi workflow_dispatch.
+Działa w środowisku ubuntu-latest.
+Składa się z dwóch jobów:
+-say-hi – prosty job który uruchamia pojedynczy krok wyświetlający komunikat "Hello, GitHub Actions!".
+-say-bye – drugi job który również wyświetla komunikat, ale czeka na zakończenie pierwszego dzięki użyciu needs: say-hi.
+W efekcie workflow po ręcznym uruchomieniu wypisuje najpierw pierwszy komunikat, a potem drugi — w kolejności wymuszonej przez needs.
