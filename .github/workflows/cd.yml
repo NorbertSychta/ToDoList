@@ -1,0 +1,28 @@
+name: CD - Build and Tag Images
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-tag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set Image Tag
+        id: vars
+        run: echo "tag=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Frontend Image
+        run: |
+          docker build -t todo-frontend:${{ steps.vars.outputs.tag }} ./frontend
+          echo "Built frontend with tag ${{ steps.vars.outputs.tag }}"
+
+      - name: Build Backend Image
+        run: |
+          docker build -t todo-backend:${{ steps.vars.outputs.tag }} ./backend
+          echo "Built backend with tag ${{ steps.vars.outputs.tag }}"
