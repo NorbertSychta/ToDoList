@@ -9,11 +9,10 @@ services:
   backend:
     build: ./backend
     ports:
-      - "5000:5000"
-    volumes:
-      - sqlite_data:/app/data  
+      - "8000:8000"
     networks:
       - todo-net
+
 
   prometheus:
     image: prom/prometheus:v2.45.0 
