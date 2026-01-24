@@ -26,7 +26,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.12'
       - name: Install & Lint
         run: |
           cd backend
@@ -40,4 +40,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Build Stack
-        run: docker-compose build
+        run: docker compose build

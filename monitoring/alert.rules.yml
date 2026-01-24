@@ -1,0 +1,11 @@
+groups:
+  - name: todolist-alerts
+    rules:
+      - alert: HighHttpRequestRate
+        expr: sum(rate(http_requests_total[1m])) > 2
+        for: 15s
+        labels:
+          severity: warning
+        annotations:
+          summary: "Wysoki rate requestów HTTP"
+          description: "Suma requestów/s > 2 przez 15 sekund."

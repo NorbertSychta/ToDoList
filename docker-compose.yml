@@ -9,11 +9,15 @@ services:
   backend:
     build: ./backend
     ports:
-      - "5000:5000"
+      - "8000:8000"
+    environment:
+      - DB_PATH=/data/todolist.db
     volumes:
-      - sqlite_data:/app/data  
+      - sqlite_data:/data
     networks:
       - todo-net
+
+
 
   prometheus:
     image: prom/prometheus:v2.45.0 
@@ -21,8 +25,17 @@ services:
       - "9090:9090"
     volumes:
       - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./monitoring/alert.rules.yml:/etc/prometheus/alert.rules.yml
     networks:
       - todo-net
+
+  grafana:
+    image: grafana/grafana:10.4.2
+    ports:
+      - "3001:3000"
+    networks:
+      - todo-net
+
 
 networks:
   todo-net:
