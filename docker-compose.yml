@@ -10,8 +10,13 @@ services:
     build: ./backend
     ports:
       - "8000:8000"
+    environment:
+      - DB_PATH=/data/todolist.db
+    volumes:
+      - sqlite_data:/data
     networks:
       - todo-net
+
 
 
   prometheus:
