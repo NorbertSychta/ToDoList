@@ -11,6 +11,10 @@
   --text-secondary: #e2e8f0;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
@@ -55,6 +59,10 @@ body {
   padding: 2rem;
 }
 
+.form-section {
+  text-align: center;
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .app-content {
@@ -85,6 +93,12 @@ body {
   font-family: inherit;
 }
 
+.todo-form textarea {
+  resize: vertical;
+  min-height: 80px;
+  max-height: 300px;
+}
+
 .todo-form input::placeholder,
 .todo-form textarea::placeholder {
   color: rgba(255, 255, 255, 0.6);
@@ -93,6 +107,7 @@ body {
 .form-actions {
   display: flex;
   gap: 1rem;
+  justify-content: center;
 }
 
 button {

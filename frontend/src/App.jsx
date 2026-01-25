@@ -100,7 +100,7 @@ function App() {
     <div className="app-container">
       <header className="app-header">
         <h1>✨ DevOps ToDo</h1>
-        <p>Premium Task Management</p>
+
       </header>
 
       <main className="app-content">
