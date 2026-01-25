@@ -37,9 +37,10 @@ body {
 }
 
 .app-content {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 350px 1fr;
   gap: 2rem;
+  align-items: start;
 }
 
 /* Glassmorphism Cards */
@@ -53,6 +54,14 @@ body {
   box-shadow: var(--glass-shadow);
   padding: 2rem;
 }
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .app-content {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 /* Form Styles */
 .todo-form .form-group {

@@ -3,7 +3,7 @@ import TodoForm from './components/TodoForm'
 import TaskItem from './components/TaskItem'
 import './App.css'
 
-const API_URL = '/api/tasks'; // Using proxy
+const API_URL = '/api/tasks';
 
 function App() {
   const [tasks, setTasks] = useState([])
