@@ -41,11 +41,12 @@ body {
 }
 
 .app-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  justify-content: center;
+  align-items: flex-start;
   gap: 2rem;
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
   width: 100%;
 }
@@ -60,17 +61,28 @@ body {
   border: 1px solid var(--glass-border);
   box-shadow: var(--glass-shadow);
   padding: 2rem;
-  width: 100%;
 }
 
 .form-section {
   text-align: center;
+  width: 100%;
+}
+
+.list-section {
+  width: 100%;
 }
 
 /* Mobile Responsive */
-@media (max-width: 768px) {
+@media (max-width: 968px) {
   .app-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form-section,
+  .list-section {
     max-width: 100%;
+    width: 100%;
   }
 }
 
