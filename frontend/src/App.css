@@ -42,13 +42,9 @@ body {
 
 .app-content {
   display: grid;
-  grid-template-columns: 350px 1fr;
-  justify-content: center;
-  align-items: flex-start;
+  grid-template-columns: 300px 1fr;
   gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
+  align-items: start;
 }
 
 /* Glassmorphism Cards */
@@ -65,24 +61,12 @@ body {
 
 .form-section {
   text-align: center;
-  width: 100%;
-}
-
-.list-section {
-  width: 100%;
 }
 
 /* Mobile Responsive */
-@media (max-width: 968px) {
+@media (max-width: 768px) {
   .app-content {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .form-section,
-  .list-section {
-    max-width: 100%;
-    width: 100%;
+    grid-template-columns: 1fr;
   }
 }
 

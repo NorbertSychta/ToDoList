@@ -1,29 +1,11 @@
 groups:
   - name: todolist-alerts
     rules:
-      - alert: ServiceDown
-        expr: up{job="backend"} == 0
-        for: 1m
-        labels:
-          severity: critical
-        annotations:
-          summary: "Serwis backend nie działa"
-          description: "Prometheus nie może pobrać metryk z backendu od 1 minuty."
-
       - alert: HighHttpRequestRate
-        expr: sum(rate(http_request_duration_seconds_count[1m])) > 2
+        expr: sum(rate(http_requests_total[1m])) > 2
         for: 15s
         labels:
           severity: warning
         annotations:
           summary: "Wysoki rate requestów HTTP"
           description: "Suma requestów/s > 2 przez 15 sekund."
-
-      - alert: SlowResponseTime
-        expr: histogram_quantile(0.95, sum by (le) (rate(http_request_duration_seconds_bucket[5m]))) > 1.0
-        for: 2m
-        labels:
-          severity: warning
-        annotations:
-          summary: "Długi czas odpowiedzi API"
-          description: "95% żądań trwa dłużej niż 1s przez ostatnie 2 minuty."
