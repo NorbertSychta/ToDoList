@@ -1,7 +1,7 @@
 import os
 import sqlite3
 
-DB_PATH = os.getenv("DB_PATH", "/data/todolist.db")
+DB_PATH = os.getenv("DB_PATH", "todolist.db")
 
 def get_conn() -> sqlite3.Connection:
     conn = sqlite3.connect(DB_PATH, check_same_thread=False)
