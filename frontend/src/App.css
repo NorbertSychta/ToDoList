@@ -24,7 +24,7 @@ body {
 }
 
 .app-container {
-  max-width: 800px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 2rem;
 }
@@ -42,7 +42,7 @@ body {
 
 .app-content {
   display: grid;
-  grid-template-columns: 350px 1fr;
+  grid-template-columns: 300px 1fr;
   gap: 2rem;
   align-items: start;
 }
@@ -186,6 +186,12 @@ button {
   margin: 0.25rem 0 0;
   font-size: 0.9rem;
   color: var(--text-secondary);
+}
+
+.task-actions {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
 }
 
 .btn-icon {
